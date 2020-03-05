@@ -1,0 +1,12 @@
+body{
+    text-align: center;
+}
+
+h1.title {
+    padding-top: 5rem !important;
+}
+
+.container {
+    width: 100%;
+    padding: 2rem 10rem;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Coronavirus Tracker Application</title>
+    <link rel="stylesheet" type="text/css" th:href="@{semantic/semantic.min.css}">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script th:src="@{semantic/semantic.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+    <h1 class="ui header title">Coronavirus Tracker</h1>
+
+    <p>Lists the latest number of reported cases around the world</p>
+
+   <div class="container">
+       <table class="ui celled table">
+           <tr>
+               <th>State</th>
+               <th>Country</th>
+               <th>Latest Cases</th>
+           </tr>
+           <tr th:each="locationStat : ${locationStats}">
+               <td th:text="${locationStat.getState().length() > 0} ? ${locationStat.getState()} : 'Unknown' " data-label="State"></td>
+               <td th:text="${locationStat.getCountry()}" data-label="Country"></td>
+               <td th:text="${locationStat.getLatestTotalCases()}" data-label="Cases">0</td>
+           </tr>
+       </table>
+   </div>
+
+</body>
+</html>
